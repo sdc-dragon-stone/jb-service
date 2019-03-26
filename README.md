@@ -1,13 +1,13 @@
 # Project Name
 
-> Project description
+> Airbnb
 
 ## Related Projects
 
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
+  - https://github.com/mash-fec/v-service
+  - https://github.com/mash-fec/j-service
+  - https://github.com/mash-fec/m-service
+  - https://github.com/mash-fec/a-service
 
 ## Table of Contents
 
@@ -18,6 +18,11 @@
 ## Usage
 
 > Some usage instructions
+<!-- Run 'npm run seed' -->
+Install dependencies by running 'npm install'
+Run 'npm start' to start the server
+Run 'npm run react-dev' to start webpack and create bundle.js
+Open 'http://localhost:3210/' to load 'index.html'
 
 ## Requirements
 
