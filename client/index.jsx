@@ -1,16 +1,34 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import $ from 'jquery';
 
-class App extends React.Component{
+class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
 
     };
+    this.randNum = this.randNum.bind(this);
+  }
+
+  randNum() {
+    return Math.floor(Math.random() * Math.floor(100));
+  }
+
+  componentDidMount() {
+    $.ajax({
+      method: 'GET',
+      url: '/description',
+      dataType: 'json',
+      data: { _id: this.randNum() },
+      success: (data) => {
+        console.log('data:', data);
+      }
+    });
   }
 
   render() {
-    return(
+    return (
       <div>Hello World</div>
     );
   }
