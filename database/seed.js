@@ -38,9 +38,3 @@ for (let i = 0; i < 100; i++) {
 }
 
 db.save(descriptions);
-// .then(() => {
-//   db.readAll()
-//     .then((res) => {
-//       console.log('result:', res);
-//     });
-// });

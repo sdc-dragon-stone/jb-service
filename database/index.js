@@ -43,10 +43,6 @@ const readOne = (idNum) => {
 
 const readAll = () => {
   return Description.find().sort({ _id: 'ascending' });
-  // return Description.find().exec()
-  //   .then((res) => {
-  //     return res;
-  //   });
 };
 
 module.exports = { save, readOne, readAll };
