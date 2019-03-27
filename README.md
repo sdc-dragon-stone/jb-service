@@ -18,11 +18,18 @@
 ## Usage
 
 > Some usage instructions
-<!-- Run 'npm run seed' -->
 Install dependencies by running 'npm install'
+Install MongoDB using 'brew install mongodb-community@4.0'
+Connect a mongo shell to the running instance by running 'mongo'
 Run 'npm start' to start the server
 Run 'npm run react-dev' to start webpack and create bundle.js
+Run 'npm run seed' to seed data into the MongoDB database
 Open 'http://localhost:3210/' to load 'index.html'
+
+## Testing
+
+To run tests, first close server connection with 'CTRL + C'
+Run 'npm test'
 
 ## Requirements
 
@@ -42,3 +49,16 @@ npm install -g webpack
 npm install
 ```
 
+### API Requests
+
+GET: '/description'
+
+RESULT: { _id: 1,
+    title: 'Irure aliqua nulla nostrud.',
+    city: 'aliqua',
+    numGuests: 5,
+    numBedrooms: 2,
+    numBeds: 3,
+    numBaths: 5,
+    description: 'In aute cillum laboris proident ex excepteur et mollit irure nulla culpa commodo cillum non. Non occaecat veniam reprehenderit elit fugiat excepteur. Dolore occaecat irure culpa ea pariatur deserunt ipsum proident. Esse dolore sit laborum duis adipisicing anim et laboris anim ad minim ullamco ex. Voluptate pariatur ad elit quis qui. Do Lorem consectetur est occaecat id elit eu excepteur. Tempor aliquip quis qui consectetur enim veniam non sunt sunt tempor et in fugiat qui.',
+    __v: 0 }
