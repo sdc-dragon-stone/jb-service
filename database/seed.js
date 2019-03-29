@@ -105,8 +105,6 @@ const genNumBedrooms = (type) => {
   return numBedrooms;
 };
 
-// const numBedrooms = genNumBedrooms(noun);
-
 const genNumBeds = numGuests => rand(numGuests, (numGuests / 2));
 
 const genNumBaths = () => rand();
@@ -152,7 +150,5 @@ for (let i = 0; i < 100; i++) {
     description: genDescription(noun, numBedrooms)
   });
 }
-
-// console.log('descriptions:', descriptions);
 
 db.save(descriptions);
