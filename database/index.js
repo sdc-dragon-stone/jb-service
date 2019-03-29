@@ -19,9 +19,9 @@ descriptionSchema.plugin(AutoIncrement);
 
 const Description = mongoose.model('Description', descriptionSchema);
 
-Description.counterReset('_id');
 
 const save = (descs) => {
+  Description.counterReset('_id');
   return new Promise((resolve, reject) => {
     descs.map((descObj) => {
       const home = new Description(descObj);

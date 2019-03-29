@@ -11,10 +11,6 @@ class App extends React.Component {
     this.randNum = this.randNum.bind(this);
   }
 
-  randNum() {
-    return Math.floor(Math.random() * Math.floor(100));
-  }
-
   componentDidMount() {
     $.ajax({
       method: 'GET',
@@ -25,6 +21,10 @@ class App extends React.Component {
         console.log('data:', data);
       }
     });
+  }
+
+  randNum() {
+    return Math.floor(Math.random() * Math.floor(100));
   }
 
   render() {
