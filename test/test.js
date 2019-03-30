@@ -5,9 +5,7 @@ const app = require('../server');
 chai.use(chaiHttp);
 chai.should();
 
-const randNum = () => {
-  return Math.floor(Math.random() * Math.floor(100));
-};
+const randNum = () => Math.floor(Math.random() * Math.floor(100));
 
 describe('Server', () => {
   it('should return status 200 from GET /', (done) => {
