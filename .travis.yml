@@ -3,4 +3,3 @@ node_js:
   - "6.13.0"
 services:
   - mongodb
-script: ./database/seed.js
