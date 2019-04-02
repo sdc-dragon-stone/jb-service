@@ -85,7 +85,7 @@ describe('Database', () => {
     TestDesc.find({}, (err, res) => {
       if (err) console.log('Error reading from db:', err);
       else {
-        res.body[0].should.be.an('object');
+        res[0].should.be.an('object');
       }
     });
   });
@@ -93,50 +93,73 @@ describe('Database', () => {
   describe('Description Object', () => {
     it('should have a title', () => {
       TestDesc.find({}, (err, res) => {
-        res.body[0].title.should.exist;
-        res.body[0].title.should.be.a('string');
+        if (err) console.log('Error reading title:', err);
+        else {
+          console.log('res is:', res);
+          console.log('res[0] is:', res[0]);
+          res[0].title.should.exist;
+          res[0].title.should.be.a('string');
+        }
       });
     });
 
     it('should have a city', () => {
       TestDesc.find({}, (err, res) => {
-        res.body[0].city.should.exist;
-        res.body[0].city.should.be.a('string');
+        if (err) console.log('Error reading city:', err);
+        else {
+          res[0].city.should.exist;
+          res[0].city.should.be.a('string');
+        }
       });
     });
 
     it('should have a number of allowed guests', () => {
       TestDesc.find({}, (err, res) => {
-        res.body[0].numGuests.should.exist;
-        res.body[0].numGuests.should.be.a('number');
+        if (err) console.log('Error reading number of guests:', err);
+        else {
+          res[0].numGuests.should.exist;
+          res[0].numGuests.should.be.a('number');
+        }
       });
     });
 
     it('should have a number of bedrooms', () => {
       TestDesc.find({}, (err, res) => {
-        res.body[0].numBedrooms.should.exist;
-        res.body[0].numBedrooms.should.be.a('number');
+        if (err) console.log('Error reading bedrooms:', err);
+        else {
+          res[0].numBedrooms.should.exist;
+          res[0].numBedrooms.should.be.a('number');
+        }
       });
     });
 
     it('should have a number of beds', () => {
       TestDesc.find({}, (err, res) => {
-        res.body[0].numBeds.should.exist;
-        res.body[0].numBeds.should.be.a('number');
+        if (err) console.log('Error reading beds:', err);
+        else {
+          res[0].numBeds.should.exist;
+          res[0].numBeds.should.be.a('number');
+        }
       });
     });
 
     it('should have a number of bathrooms', () => {
       TestDesc.find({}, (err, res) => {
-        res.body[0].numBaths.should.exist;
-        res.body[0].numBaths.should.be.a('number');
+        if (err) console.log('Error reading bathrooms:', err);
+        else {
+          res[0].numBaths.should.exist;
+          res[0].numBaths.should.be.a('number');
+        }
       });
     });
 
     it('should have a description paragraph', () => {
       TestDesc.find({}, (err, res) => {
-        res.body[0].description.should.exist;
-        res.body[0].description.should.be.a('string');
+        if (err) console.log('Error reading paragraph:', err);
+        else {
+          res[0].description.should.exist;
+          res[0].description.should.be.a('string');
+        }
       });
     });
   });
