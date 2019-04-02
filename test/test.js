@@ -39,8 +39,6 @@ const testHome = new TestDesc({
 chai.use(chaiHttp);
 chai.should();
 
-const randNum = () => Math.floor(Math.random() * Math.floor(100));
-
 describe('Server', () => {
   it('should return status 200 from GET /', (done) => {
     chai.request(app)
@@ -95,8 +93,6 @@ describe('Database', () => {
       TestDesc.find({}, (err, res) => {
         if (err) console.log('Error reading title:', err);
         else {
-          console.log('res is:', res);
-          console.log('res[0] is:', res[0]);
           res[0].title.should.exist;
           res[0].title.should.be.a('string');
         }
