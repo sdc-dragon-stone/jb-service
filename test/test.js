@@ -93,7 +93,6 @@ describe('Database', () => {
       TestDesc.find({}, (err, res) => {
         if (err) console.log('Error reading title:', err);
         else {
-          res[0].title.should.exist;
           res[0].title.should.be.a('string');
         }
       });
@@ -103,7 +102,6 @@ describe('Database', () => {
       TestDesc.find({}, (err, res) => {
         if (err) console.log('Error reading city:', err);
         else {
-          res[0].city.should.exist;
           res[0].city.should.be.a('string');
         }
       });
@@ -113,7 +111,6 @@ describe('Database', () => {
       TestDesc.find({}, (err, res) => {
         if (err) console.log('Error reading number of guests:', err);
         else {
-          res[0].numGuests.should.exist;
           res[0].numGuests.should.be.a('number');
         }
       });
@@ -123,7 +120,6 @@ describe('Database', () => {
       TestDesc.find({}, (err, res) => {
         if (err) console.log('Error reading bedrooms:', err);
         else {
-          res[0].numBedrooms.should.exist;
           res[0].numBedrooms.should.be.a('number');
         }
       });
@@ -133,7 +129,6 @@ describe('Database', () => {
       TestDesc.find({}, (err, res) => {
         if (err) console.log('Error reading beds:', err);
         else {
-          res[0].numBeds.should.exist;
           res[0].numBeds.should.be.a('number');
         }
       });
@@ -143,7 +138,6 @@ describe('Database', () => {
       TestDesc.find({}, (err, res) => {
         if (err) console.log('Error reading bathrooms:', err);
         else {
-          res[0].numBaths.should.exist;
           res[0].numBaths.should.be.a('number');
         }
       });
@@ -153,7 +147,6 @@ describe('Database', () => {
       TestDesc.find({}, (err, res) => {
         if (err) console.log('Error reading paragraph:', err);
         else {
-          res[0].description.should.exist;
           res[0].description.should.be.a('string');
         }
       });
