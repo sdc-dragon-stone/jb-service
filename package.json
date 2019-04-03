@@ -11,7 +11,8 @@
     "seed": "node database/seed.js",
     "start": "nodemon server/index.js",
     "react-dev": "webpack -d --watch",
-    "test": "mocha test/test.js --exit"
+    "test-backend": "mocha test/test.js --exit",
+    "test-frontend": "jest test/client.test.js"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
@@ -31,9 +32,12 @@
     "@babel/core": "^7.4.0",
     "@babel/preset-env": "^7.4.2",
     "@babel/preset-react": "^7.0.0",
+    "babel-jest": "^24.7.0",
     "babel-loader": "^8.0.5",
     "chai": "^4.2.0",
     "chai-http": "^4.2.1",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.11.2",
     "eslint": "^5.15.3",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-airbnb-base": "^13.1.0",
@@ -41,6 +45,7 @@
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-react": "^7.12.4",
+    "jest": "^24.6.0",
     "mocha": "^6.0.2",
     "nodemon": "^1.18.10"
   }

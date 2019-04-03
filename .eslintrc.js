@@ -15,6 +15,11 @@ module.exports = {
     'no-plusplus': 'off',
     'prefer-rest-params': 'off',
     'no-else-return': 'off',
-    'no-underscore-dangle': 'off'
+    'no-underscore-dangle': 'off',
+    'import/extensions': 'off',
+    'react/destructuring-assignment': 'off',
+    'array-callback-return': 'off',
+    'react/prop-types': 'off',
+    'react/jsx-filename-extension': 'off'
   }
 };
