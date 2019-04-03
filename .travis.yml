@@ -4,5 +4,5 @@ node_js:
 services:
   - mongodb
 script:
-  -npm run test-backend
-  # -npm run test-frontend
+  - npm run test-backend
+  - npm run test-frontend
