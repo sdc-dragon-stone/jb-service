@@ -19,6 +19,7 @@ module.exports = {
     'import/extensions': 'off',
     'react/destructuring-assignment': 'off',
     'array-callback-return': 'off',
-    'react/prop-types': 'off'
+    'react/prop-types': 'off',
+    'react/jsx-filename-extension': 'off'
   }
 };

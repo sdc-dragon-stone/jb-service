@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-filename-extension */
 import React from 'react';
 import { expect } from 'chai';
 import Enzyme, { shallow } from 'enzyme';
