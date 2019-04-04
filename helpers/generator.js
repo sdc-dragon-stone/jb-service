@@ -90,7 +90,7 @@ const provided = ['a refrigerator', 'a sink', 'a microwave', 'an electric kettle
   'breakfast items', 'maps', 'a map of the area', 'guidebooks', 'a book to read', 'books', 'magazines', 'a magazine', 'wine', 'a bottle of wine', 'an array of paperbacks',
   'a multitude of hardcovers', 'k-cup coffee maker', 'patio chairs', 'a heat lamp', 'filtered water', 'a DVD player', 'a Blu-ray player', 'a record player', 'a cassette player',
   'a VCR', 'a CD player', 'a walkman', 'an extra mattress', 'a sofa-bed', 'a fold down sofa', 'a futon', 'a stove', 'an oven', 'a toaster', 'a crockpot', 'a space heater',
-  'a fan', 'sugar', 'cream', 'hot water', 'toilet paper', 'paper towels', 'bed sheets', 'oil', 'salt', 'pepper', 'a fire extinguisher', 'a smoke detector', 'a first aid kit',
+  'a fan', 'cream and sugar', 'hot water', 'toilet paper', 'paper towels', 'bed sheets', 'oil', 'salt', 'pepper', 'a fire extinguisher', 'a smoke detector', 'a first aid kit',
   'air conditioning', 'a washer', 'a dryer', 'a piece of gum', 'pocket lint', 'a seashell', 'a picture of our dog'];
 
 const verbs = ['features', 'includes', 'comes with', 'showcases', 'emphasizes', 'spotlights', 'stars', 'highlights'];
