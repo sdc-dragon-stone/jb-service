@@ -22,6 +22,7 @@ module.exports = {
     'react/prop-types': 'off',
     'react/jsx-filename-extension': 'off',
     'no-nested-ternary': 'off',
-    'no-param-reassign': 'off'
+    'no-param-reassign': 'off',
+    'react/jsx-one-expression-per-line': 'off'
   }
 };

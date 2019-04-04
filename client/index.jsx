@@ -1,10 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
-import Guests from './components/Guests.jsx';
-import Bedrooms from './components/Bedrooms.jsx';
-import Beds from './components/Beds.jsx';
-import Baths from './components/Baths.jsx';
+import styled from 'styled-components';
+import Title from './components/Title.jsx';
+import HouseInfo from './components/HouseInfo.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -12,9 +11,14 @@ class App extends React.Component {
     this.state = {
       home: {
         _id: '',
+        host: {
+          name: '',
+          pic: ''
+        },
         title: '',
         city: '',
         numGuests: 0,
+        homeType: '',
         numBedrooms: 0,
         numBeds: 0,
         numBaths: 0,
@@ -42,19 +46,60 @@ class App extends React.Component {
   }
 
   render() {
+    const Wrapper = styled.section`
+      @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700');
+      font-family: Montserrat, Helvetica Neue, sans-serif;
+      color: #484848;
+      font-size: 16px;
+      font-weight: 400;
+      margin-left: 50px;
+      width: 650px;
+    `;
+
+    const City = styled.section`
+      margin-bottom: 16px;
+    `;
+
+    const Rule = styled.hr`
+      margin-top: 24px;
+      margin-bottom: 24px;
+      border-top: 1px solid #EBEBEB;
+    `;
+
+    const Links = styled.a`
+      color: #008489;
+      cursor: pointer;
+      display: block;
+      font-weight: 600;
+      padding: 15px 0;
+      text-decoration: none;
+
+      :hover {
+        text-decoration: underline;
+      }
+    `;
+
+    const Arrow = styled.section`
+      border: solid #008489;
+      border-width: 0 1px 1px 0;
+      display: inline-block;
+      margin: 0 0 3px 5px;
+      padding: 3px;
+      transform: rotate(45deg);
+      -webkit-transform: rotate(45deg);
+    `;
+
     return (
-      <div>
-        <h1>{this.state.home.title}</h1>
-        {this.state.home.city}
-        <div id="houseInfo">
-          <Guests numGuests={this.state.home.numGuests} />
-          <Bedrooms numBedrooms={this.state.home.numBedrooms} />
-          <Beds numBeds={this.state.home.numBeds} />
-          <Baths numBaths={this.state.home.numBaths} />
-        </div>
-        <hr />
+      <Wrapper>
+        <Title title={this.state.home.title} host={this.state.home.host} />
+        <City>{this.state.home.city}</City>
+        <HouseInfo home={this.state.home} />
+        <Rule />
         {this.state.home.description}
-      </div>
+        <Links href="#">Read more about the space<Arrow /></Links>
+        <Links href="#">Contact host</Links>
+        <Rule />
+      </Wrapper>
     );
   }
 }

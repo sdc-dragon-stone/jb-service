@@ -24,6 +24,7 @@
     "mongoose-sequence": "^5.0.1",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
+    "react-icons": "^3.5.0",
     "styled-components": "^4.2.0",
     "underscore.string": "^3.3.5",
     "webpack": "^4.29.6",

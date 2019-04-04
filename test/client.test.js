@@ -3,6 +3,7 @@ import { expect } from 'chai';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
+import Title from '../client/components/Title.jsx';
 import Guests from '../client/components/Guests.jsx';
 import Bedrooms from '../client/components/Bedrooms.jsx';
 import Beds from '../client/components/Beds.jsx';
@@ -13,6 +14,35 @@ Enzyme.configure({ adapter: new Adapter() });
 describe('Client', () => {
   let num;
   let wrapper;
+  describe('Title', () => {
+    const title = 'Contemporary Masterpiece in Heart of SF';
+    const host = {
+      name: 'Gudrun',
+      pic: 'https://s3.amazonaws.com/uifaces/faces/twitter/olgary/128.jpg'
+    };
+    wrapper = shallow(<Title title={title} host={host} />);
+
+    it('should render a title', () => {
+      expect(wrapper.findWhere(
+        n => n.type() === 'h1' && n.contains(title)
+      ));
+    });
+
+    describe('Host', () => {
+      it('should render a host picture', () => {
+        expect(wrapper.findWhere(
+          n => n.type() === 'Pic' && n.contains(host.pic)
+        ));
+      });
+
+      it('should render a host name', () => {
+        expect(wrapper.findWhere(
+          n => n.type() === 'Wrapper' && n.contains(host.name)
+        ));
+      });
+    });
+  });
+
   describe('Guests', () => {
     it('should render "1 guest" when number of guests is 1', () => {
       num = 1;
