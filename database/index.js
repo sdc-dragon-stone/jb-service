@@ -6,6 +6,10 @@ mongoose.set('useCreateIndex', true);
 
 const descriptionSchema = new mongoose.Schema({
   _id: Number,
+  host: {
+    name: String,
+    pic: String
+  },
   title: String,
   city: String,
   numGuests: Number,
