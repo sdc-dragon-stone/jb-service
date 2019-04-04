@@ -141,7 +141,7 @@ const genDescription = (type, numRooms) => {
     `The ${type} is located on the ${rand(floor)} floor.`, `There are areas for ${rand(areas)}, ${rand(areas)}, ${rand(areas)}, and ${rand(areas)}.`,
     `Street parking is ${rand(2) > 1 ? 'safe' : 'not advised in our neighborhood. Make sure to lock your car'}.`, `Our electricity comes from ${rand(electricity)}.`,
     `Transportation to Downtown (about ${rand() + 1} miles to ${city} Center) or any of the ${city} attractions is easy with ${rand(transportation)}!`, `${rand(provided)} available upon request.`,
-    `The ${type} is ${rand() * 123} sq ft and has ${numRooms > 4 ? (numRooms > 8 ? 10 : 9) : 8} ft ceilings.`, `The ${numRooms} ${numRooms > 1 ? 'bedrooms have' : 'bedroom has'} ${rand(provided)}.`];
+    `The ${type} is ${rand() * 123} sq ft and has ${numRooms > 4 ? (numRooms > 8 ? 10 : 9) : 8} ft ceilings.`, `The ${numRooms > 1 ? numRooms : ''} ${numRooms > 1 ? 'bedrooms have' : 'bedroom has'} ${rand(provided)}.`];
 
   // Add sentences to description in random order
   const shuffle = (array) => {

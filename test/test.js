@@ -1,6 +1,7 @@
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 const mongoose = require('mongoose');
+const faker = require('faker');
 const app = require('../server');
 const generate = require('../helpers/generator.js');
 
@@ -9,6 +10,10 @@ const generate = require('../helpers/generator.js');
 mongoose.connect('mongodb://localhost/airbnbTest', { useNewUrlParser: true });
 
 const testSchema = new mongoose.Schema({
+  host: {
+    name: String,
+    pic: String
+  },
   title: String,
   city: String,
   numGuests: Number,
@@ -26,6 +31,10 @@ const numGuests = generate.genNumGuests();
 const numBedrooms = generate.genNumBedrooms();
 
 const testHome = new TestDesc({
+  host: {
+    name: faker.name.firstName(),
+    pic: faker.image.avatar()
+  },
   title: generate.genTitle(noun),
   city: generate.genCity(),
   numGuests,
@@ -89,6 +98,29 @@ describe('Database', () => {
   });
 
   describe('Description Object', () => {
+    describe('Host Object', () => {
+      it('should have a name', () => {
+        TestDesc.find({}, (err, res) => {
+          if (err) console.log('Error reading host name:', err);
+          else {
+            console.log('res:', res[0]);
+            console.log('host name:', res[0].host.name);
+            res[0].host.name.should.be.a('string');
+          }
+        });
+      });
+
+      it('should have a picture', () => {
+        TestDesc.find({}, (err, res) => {
+          if (err) console.log('Error reading host picture:', err);
+          else {
+            console.log('host pic:', res[0].host.pic);
+            res[0].host.pic.should.be.a('string');
+          }
+        });
+      });
+    });
+
     it('should have a title', () => {
       TestDesc.find({}, (err, res) => {
         if (err) console.log('Error reading title:', err);
