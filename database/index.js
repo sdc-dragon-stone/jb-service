@@ -9,6 +9,7 @@ const descriptionSchema = new mongoose.Schema({
   title: String,
   city: String,
   numGuests: Number,
+  homeType: String,
   numBedrooms: Number,
   numBeds: Number,
   numBaths: Number,

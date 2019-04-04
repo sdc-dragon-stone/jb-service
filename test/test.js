@@ -12,6 +12,7 @@ const testSchema = new mongoose.Schema({
   title: String,
   city: String,
   numGuests: Number,
+  homeType: String,
   numBedrooms: Number,
   numBeds: Number,
   numBaths: Number,
@@ -28,6 +29,7 @@ const testHome = new TestDesc({
   title: generate.genTitle(noun),
   city: generate.genCity(),
   numGuests,
+  homeType: generate.genHomeType(noun),
   numBedrooms,
   numBeds: generate.genNumBeds(numGuests),
   numBaths: generate.genNumBaths(),
@@ -73,8 +75,6 @@ describe('Database', () => {
     testHome.save((err) => {
       if (err) {
         console.log('Error saving home description to test database:', err);
-      } else {
-        console.log('Saved test home:', testHome.title);
       }
     });
   });
@@ -112,6 +112,15 @@ describe('Database', () => {
         if (err) console.log('Error reading number of guests:', err);
         else {
           res[0].numGuests.should.be.a('number');
+        }
+      });
+    });
+
+    it('should have a home type', () => {
+      TestDesc.find({}, (err, res) => {
+        if (err) console.log('Error reading home type:', err);
+        else {
+          res[0].homeType.should.be.a('string');
         }
       });
     });

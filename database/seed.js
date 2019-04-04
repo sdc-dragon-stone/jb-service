@@ -11,6 +11,7 @@ for (let i = 0; i < 100; i++) {
     title: generator.genTitle(noun),
     city: generator.genCity(),
     numGuests,
+    homeType: generator.genHomeType(noun),
     numBedrooms,
     numBeds: generator.genNumBeds(numGuests),
     numBaths: generator.genNumBaths(),
