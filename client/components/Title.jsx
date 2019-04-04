@@ -13,13 +13,13 @@ const Wrapper = styled.section`
 `;
 
 const TitleText = styled.h1`
-display: inline;
-font-size: 32px;
-font-weight: 700;
-margin-top: 0;
-margin-bottom: .3em;
-vertical-align: top;
-width: 525px;
+  display: inline;
+  font-size: 32px;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: .3em;
+  vertical-align: top;
+  width: 525px;
 `;
 
 const Title = props => (
