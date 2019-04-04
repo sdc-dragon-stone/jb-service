@@ -20,6 +20,8 @@ module.exports = {
     'react/destructuring-assignment': 'off',
     'array-callback-return': 'off',
     'react/prop-types': 'off',
-    'react/jsx-filename-extension': 'off'
+    'react/jsx-filename-extension': 'off',
+    'no-nested-ternary': 'off',
+    'no-param-reassign': 'off'
   }
 };
