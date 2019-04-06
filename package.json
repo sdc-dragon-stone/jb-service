@@ -9,10 +9,12 @@
   },
   "scripts": {
     "seed": "node database/seed.js",
-    "start": "nodemon server/index.js",
+    "server": "nodemon server/index.js",
     "react-dev": "webpack -d --watch",
     "test-backend": "mocha test/test.js --exit",
-    "test-frontend": "jest test/client.test.js"
+    "test-frontend": "jest test/client.test.js",
+    "start": "node server/index.js",
+    "build": "webpack"
   },
   "dependencies": {
     "body-parser": "^1.18.3",

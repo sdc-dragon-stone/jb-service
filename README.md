@@ -24,7 +24,7 @@ Install dependencies by running 'npm install'
 Install MongoDB using 'brew install mongodb-community@4.0'
 Connect a mongo shell to the running instance by running 'mongo'
 Run 'npm start' to start the server
-Run 'npm run react-dev' to start webpack and create bundle.js
+Run 'npm run build' to start webpack and create bundle.js
 Run 'npm run seed' to seed data into the MongoDB database
 Open 'http://localhost:3210/' to load 'index.html'
 
