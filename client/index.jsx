@@ -35,7 +35,6 @@ class Descriptions extends React.Component {
       dataType: 'json',
       data: { _id: this.randNum() },
       success: (data) => {
-        console.log('data:', data);
         this.setState({ home: data });
       }
     });
@@ -52,18 +51,18 @@ class Descriptions extends React.Component {
       color: #484848;
       font-size: 16px;
       font-weight: 400;
-      margin-left: 50px;
-      width: 650px;
+      margin: auto;
+      width: 600px;
     `;
 
     const City = styled.section`
       margin-bottom: 16px;
     `;
 
-    const Rule = styled.hr`
+    const Rule = styled.section`
       margin-top: 24px;
       margin-bottom: 24px;
-      border-top: 1px solid #EBEBEB;
+      border-bottom: 1px solid #d2d2d2
     `;
 
     const Links = styled.a`
@@ -98,7 +97,6 @@ class Descriptions extends React.Component {
         {this.state.home.description}
         <Links href="#">Read more about the space<Arrow /></Links>
         <Links href="#">Contact host</Links>
-        <Rule />
       </Wrapper>
     );
   }
