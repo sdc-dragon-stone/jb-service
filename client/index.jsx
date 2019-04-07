@@ -104,4 +104,4 @@ class Descriptions extends React.Component {
   }
 }
 
-ReactDOM.render(<Descriptions />, document.getElementById('app'));
+ReactDOM.render(<Descriptions />, document.getElementById('descriptions'));
