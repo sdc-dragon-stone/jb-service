@@ -14,7 +14,7 @@
     "test-backend": "mocha test/test.js --exit",
     "test-frontend": "jest test/client.test.js",
     "start": "node server/index.js",
-    "build": "webpack"
+    "build": "webpack -p"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
