@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import Title from './components/Title.jsx';
 import HouseInfo from './components/HouseInfo.jsx';
 
-class App extends React.Component {
+class Descriptions extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -104,4 +104,4 @@ class App extends React.Component {
   }
 }
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<Descriptions />, document.getElementById('app'));
