@@ -91,7 +91,7 @@ const provided = ['a refrigerator', 'a sink', 'a microwave', 'an electric kettle
   'a multitude of hardcovers', 'k-cup coffee maker', 'patio chairs', 'a heat lamp', 'filtered water', 'a DVD player', 'a Blu-ray player', 'a record player', 'a cassette player',
   'a VCR', 'a CD player', 'a walkman', 'an extra mattress', 'a sofa-bed', 'a fold down sofa', 'a futon', 'a stove', 'an oven', 'a toaster', 'a crockpot', 'a space heater',
   'a fan', 'cream and sugar', 'hot water', 'toilet paper', 'paper towels', 'bed sheets', 'oil', 'salt', 'pepper', 'a fire extinguisher', 'a smoke detector', 'a first aid kit',
-  'air conditioning', 'a washer', 'a dryer', 'a piece of gum', 'pocket lint', 'a seashell', 'a picture of our dog'];
+  'air conditioning', 'a washer', 'a dryer', 'a piece of gum', 'pocket lint', 'a seashell', 'a picture of our dog', 'emotional support hamster'];
 
 const verbs = ['features', 'includes', 'comes with', 'showcases', 'emphasizes', 'spotlights', 'stars', 'highlights'];
 
@@ -100,7 +100,8 @@ const floor = ['ground', 'basement', 'underground', 'first', 'second', 'third', 
 const areas = ['sleeping', 'eating', 'bathing', 'dancing', 'relaxing', 'dining', 'cooking', 'working', 'singing', 'drinking', 'playing', 'running', 'walking', 'talking',
   'reading', 'thinking', 'hanging out'];
 
-const electricity = ['solar panels on the roof', 'potatoes', 'magnets', 'the river', 'magic elves in the basement', 'the power lines', 'windmills', 'lightning'];
+const electricity = ['solar panels on the roof', 'potatoes', 'magnets', 'the river', 'magic elves in the basement', 'the power lines', 'windmills', 'lightning',
+  'shuffling across the carpet really fast with socks on'];
 
 const transportation = ['an Uber', 'frequent buses', 'a taxi', 'a Lyft', 'frequent trains', 'a ferry', 'a canoe', 'an airplane ride', 'a mule ride'];
 
