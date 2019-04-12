@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import Title from './components/Title.jsx';
 import HouseInfo from './components/HouseInfo.jsx';
 
-const id = window.id === undefined ? faker.random.number({ min: 1, max: 100 }) : window.id;
+const id = (window.id === undefined || window.id === null) ? faker.random.number({ min: 1, max: 100 }) : window.id;
 
 const Wrapper = styled.section`
       @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700');
