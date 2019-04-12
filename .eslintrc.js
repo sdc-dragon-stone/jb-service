@@ -23,6 +23,7 @@ module.exports = {
     'react/jsx-filename-extension': 'off',
     'no-nested-ternary': 'off',
     'no-param-reassign': 'off',
-    'react/jsx-one-expression-per-line': 'off'
+    'react/jsx-one-expression-per-line': 'off',
+    'max-len': 'off'
   }
 };
