@@ -1,7 +1,13 @@
 const mongoose = require('mongoose');
 const AutoIncrement = require('mongoose-sequence')(mongoose);
 
-mongoose.connect('mongodb://localhost/airbnbDesc', { useNewUrlParser: true });
+const mongoUri = process.env.MONGODB_URI || 'mongodb://localhost/airbnbDesc';
+
+console.log('PROCESS.ENV.MONGODB_URI', process.env.MONGODB_URI);
+
+console.log('MONGO URI==========>', mongoUri);
+
+mongoose.connect(mongoUri, { useNewUrlParser: true });
 mongoose.set('useCreateIndex', true);
 
 const descriptionSchema = new mongoose.Schema({
