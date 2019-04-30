@@ -14,7 +14,7 @@ const Wrapper = styled.section`
     font-family: 'Montserrat';
     font-display: swap;
     src: local('Montserrat Regular'), url(https://fonts.gstatic.com/s/montserrat/v13/JTUSjIg1_i6t8kCHKm459W1hyyTh89ZNpQ.woff2) format('woff2');
-  },
+  };
   font-family: Montserrat, Helvetica Neue, sans-serif;
   color: #484848;
   font-size: 16px;
