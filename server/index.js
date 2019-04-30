@@ -9,7 +9,6 @@ const db = require('../database/index.js');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-
 app.use(expressStaticGzip(`${__dirname}/../public`, {
   index: false,
   enableBrotli: true,
