@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const expressStaticGzip = require('express-static-gzip');
 
 const port = process.env.PORT || 3210;
 const app = express();
@@ -9,6 +10,16 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(express.static('./public'));
+
+app.use(expressStaticGzip(`${__dirname}/../public`, {
+  index: false,
+  enableBrotli: true,
+  orderPreference: ['br', 'gz'],
+  setHeaders: (res) => {
+    res.setHeader('Cache-Control', 'public, max-age=31536000');
+  }
+}));
+
 
 app.get('/description', (req, res) => {
   db.readOne(req.query._id).exec((err, homeDesc) => {
