@@ -9,20 +9,14 @@ const db = require('../database/index.js');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-// app.use('/', expressStaticGzip(`${__dirname}/../public`, {
-//   index: false,
-//   enableBrotli: true,
-//   orderPreference: ['gz'],
-//   setHeaders: (res) => {
-//     res.setHeader('Cache-Control', 'public, max-age=31536000');
-//   }
-// }));
-
-app.get('*.js', (req, res, next) => {
-  req.url += '.gz';
-  res.set('Content-Encoding', 'gzip');
-  next();
-});
+app.use('/', expressStaticGzip(`${__dirname}/../public`, {
+  index: false,
+  enableBrotli: true,
+  orderPreference: ['gz'],
+  setHeaders: (res) => {
+    res.setHeader('Cache-Control', 'public, max-age=31536000');
+  }
+}));
 
 app.use(express.static('./public'));
 
