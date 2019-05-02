@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/', expressStaticGzip(`${__dirname}/../public`, {
   index: false,
   enableBrotli: true,
-  orderPreference: ['br'],
+  orderPreference: ['br', 'gz'],
   setHeaders: (res) => {
     res.setHeader('Cache-Control', 'public, max-age=31536000');
   }
