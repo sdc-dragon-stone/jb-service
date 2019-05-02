@@ -10,6 +10,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use('/', expressStaticGzip(`${__dirname}/../public`, {
+  index: false,
   enableBrotli: false,
   orderPreference: ['gz'],
   setHeaders: (res) => {
