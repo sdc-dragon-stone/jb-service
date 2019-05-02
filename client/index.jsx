@@ -10,11 +10,6 @@ const id = (window.id === undefined || window.id === null) ? faker.random.number
 
 const Wrapper = styled.section`
   @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700');
-  @font-face {
-    font-family: 'Montserrat';
-    font-display: fallback;
-    src: local('Montserrat Regular'), url(https://fonts.gstatic.com/s/montserrat/v13/JTUSjIg1_i6t8kCHKm459W1hyyTh89ZNpQ.woff2) format('woff2');
-  },
   font-family: Montserrat, Helvetica Neue, sans-serif;
   color: #484848;
   font-size: 16px;

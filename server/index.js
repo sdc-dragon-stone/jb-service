@@ -9,9 +9,7 @@ const db = require('../database/index.js');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use(express.static('./public'));
-
-app.use(expressStaticGzip(`${__dirname}/../public`, {
+app.use('/', expressStaticGzip(`${__dirname}/../public`, {
   index: false,
   enableBrotli: true,
   orderPreference: ['br', 'gz'],
@@ -20,6 +18,7 @@ app.use(expressStaticGzip(`${__dirname}/../public`, {
   }
 }));
 
+app.use(express.static('./public'));
 
 app.get('/description', (req, res) => {
   db.readOne(req.query._id).exec((err, homeDesc) => {
