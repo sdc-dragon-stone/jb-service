@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/', expressStaticGzip(`${__dirname}/../public`, {
   index: false,
   enableBrotli: true,
-  orderPreference: ['br', 'gz'],
+  orderPreference: ['gz'],
   setHeaders: (res) => {
     res.setHeader('Cache-Control', 'public, max-age=31536000');
   }
@@ -21,6 +21,7 @@ app.use('/', expressStaticGzip(`${__dirname}/../public`, {
 app.use(express.static('./public'));
 
 app.get('/description', (req, res) => {
+  console.log('HEADERS================>', req.headers);
   db.readOne(req.query._id).exec((err, homeDesc) => {
     if (err) {
       res.status(404).send(err);
