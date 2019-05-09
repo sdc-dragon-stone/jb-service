@@ -30,6 +30,21 @@ app.get('/description', (req, res) => {
   });
 });
 
+app.post('/post', (req, res) => {
+
+});
+
+app.delete('/delete', (req, res) => {
+  db.deleteOne({}, (err) => {
+    if (err) { throw err; }
+    console.log('item deleted!');
+  });
+});
+
+app.put('/put', (req, res) => {
+  db.findByIdAndUpdate(id, update, options, callback)
+});
+
 const server = app.listen(port, () => console.log(`Listening on port ${port}`));
 
 module.exports = server;
