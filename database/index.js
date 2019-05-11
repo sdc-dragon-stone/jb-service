@@ -44,8 +44,29 @@ const save = (descs) => {
   });
 };
 
+const saveOne = (item) => {
+  const oneItem = new Description(item);
+  oneItem.save((err) => {
+    if (err) {
+      console.log('Error save one item to database', err);
+    } else {
+      console.log('Saved one item', item.title);
+      // resolve(oneItem);
+    }
+  });
+};
+
+const deleteOne = (item) => {
+  db.findOneAndDelete({ "pic" : { $regex: /https://s3.amazonaws/, $options: 'i' } }, (err) => {
+  if (err) { throw err; }s: 'i'
+  console.log('item deleted!');
+  res.send('deleted');
+});
+}
+
+
 const readOne = idNum => Description.find({ _id: idNum });
 
 const readAll = () => Description.find().sort({ _id: 'ascending' });
 
-module.exports = { save, readOne, readAll };
+module.exports = { save, readOne, readAll, saveOne, deleteOne };

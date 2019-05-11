@@ -5,6 +5,7 @@ import faker from 'faker';
 import styled from 'styled-components';
 import Title from './components/Title.jsx';
 import HouseInfo from './components/HouseInfo.jsx';
+import createOne from '../database/createOne.js';
 
 const id = (window.id === undefined || window.id === null) ? faker.random.number({ min: 1, max: 100 }) : window.id;
 
@@ -25,7 +26,7 @@ const City = styled.section`
 const Rule = styled.section`
   margin-top: 24px;
   margin-bottom: 24px;
-  border-bottom: 1px solid #d2d2d2
+  border-bottom: 1px solid #d2d2d2;
 `;
 
 const Links = styled.a`
@@ -72,6 +73,9 @@ class Descriptions extends React.Component {
       }
     };
     this.randNum = this.randNum.bind(this);
+    this.handlePost = this.handlePost.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
+    this.handlePut = this.handlePut.bind(this);
   }
 
   componentDidMount() {
@@ -82,6 +86,46 @@ class Descriptions extends React.Component {
       data: { _id: id },
       success: (data) => {
         this.setState({ home: data });
+      }
+    });
+  }
+
+  handlePost() {
+    const postItem = createOne.item();
+    console.log('postItem', postItem);
+    $.ajax({
+      method: 'POST',
+      url: '/post',
+      dataType: 'json',
+      data: { postItem },
+      success: () => {
+        console.log('posted!');
+      }
+    });
+  }
+
+  handleDelete() {
+    const deleteItem = createOne.item();
+    console.log('deleteItem', deleteItem);
+    $.ajax({
+      method: 'DELETE',
+      url: '/delete',
+      dataType: 'json',
+      data: { deleteItem },
+      success: () => {
+        console.log('deleted!');
+      }
+    });
+  }
+
+  handlePut() {
+    $.ajax({
+      method: 'PUT',
+      url: '/put',
+      dataType: 'json',
+      data: { _id: id },
+      success: () => {
+        console.log('put - updated!');
       }
     });
   }
@@ -100,6 +144,10 @@ class Descriptions extends React.Component {
         {this.state.home.description}
         <Links href="#">Read more about the space<Arrow /></Links>
         <Links href="#">Contact host</Links>
+        <button onClick={this.handlePost}>POST</button><br></br><br></br>
+        <button onClick={this.handleDelete}>Delete</button><br></br><br></br>
+        <button onClick={this.handlePut}>PUT</button>
+
       </Wrapper>
     );
   }
