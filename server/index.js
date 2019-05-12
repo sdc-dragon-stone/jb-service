@@ -26,6 +26,7 @@ app.use('/', expressStaticGzip(`${__dirname}/../public`, {
 app.use(express.static('./public'));
 
 app.get('/description', (req, res) => {
+  console.log('_id', req.query._id);
   db.readOne(req.query._id).exec((err, homeDesc) => {
     if (err) {
       res.status(404).send(err);
@@ -37,22 +38,19 @@ app.get('/description', (req, res) => {
 
 app.post('/post', (req, res) => {
   const post = req.body.postItem[0];
-  req.setTimeout(0);
-  console.log('post', post);
-  db.saveOne(post, (err, result) => {
+  // req.setTimeout(0);
+  db.saveOne(post, (err) => {
     if (err) { throw err; }
-    console.log('saved', result);
-    res.send('saved');
+    res.status(200);
   });
 });
 
 app.delete('/delete', (req, res) => {
+  req.body.deleteItem[0]._id = 1;
   const deleteItem = req.body.deleteItem[0];
-  console.log('req.body', req.body);
-  db.findOneAndDelete({ "pic" : { $regex: /https://s3.amazonaws/, $options: 'i' } }, (err) => {
-    if (err) { throw err; }s: 'i'
-    console.log('item deleted!');
-    res.send('deleted');
+  db.deleteOne(deleteItem, (errDelete) => {
+    if (errDelete) { throw errDelete; }
+    res.status(200);
   });
 });
 

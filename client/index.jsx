@@ -106,7 +106,6 @@ class Descriptions extends React.Component {
 
   handleDelete() {
     const deleteItem = createOne.item();
-    console.log('deleteItem', deleteItem);
     $.ajax({
       method: 'DELETE',
       url: '/delete',

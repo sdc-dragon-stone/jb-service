@@ -36,7 +36,7 @@ const save = (descs) => {
         if (err) {
           console.log('Error saving home description to database:', err);
         } else {
-          console.log('Saved:', home.title);
+          console.log('Saved:', home);
           resolve(home);
         }
       });
@@ -44,25 +44,26 @@ const save = (descs) => {
   });
 };
 
-const saveOne = (item) => {
+const saveOne = (item, callback) => {
   const oneItem = new Description(item);
   oneItem.save((err) => {
     if (err) {
       console.log('Error save one item to database', err);
     } else {
-      console.log('Saved one item', item.title);
-      // resolve(oneItem);
+      callback(null, console.log('Saved one item:', item));
     }
   });
 };
 
-const deleteOne = (item) => {
-  db.findOneAndDelete({ "pic" : { $regex: /https://s3.amazonaws/, $options: 'i' } }, (err) => {
-  if (err) { throw err; }s: 'i'
-  console.log('item deleted!');
-  res.send('deleted');
-});
-}
+
+const deleteOne = (item, callback) => {
+  const deleteItem = new Description(item);
+  console.log('item', item);
+  deleteItem.deleteOne({ pic: new RegExp('/https://s3.amazonaws/') }, (deleteErr) => {
+    if (deleteErr) { throw deleteErr; }
+    callback(null, console.log('item deleted!'));
+  });
+};
 
 
 const readOne = idNum => Description.find({ _id: idNum });
