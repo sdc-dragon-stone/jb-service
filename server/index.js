@@ -55,11 +55,12 @@ app.delete('/delete', (req, res) => {
 });
 
 app.put('/put', (req, res) => {
+  req.body.updateItem[0]._id = 1;
+  const updateItem = req.body.updateItem[0];
   console.log('inside put');
-  db.findByIdAndUpdate(id, update, (err, result) => {
+  db.updateOne(updateItem, (err) => {
     if (err) { throw err; }
-    console.log('updated', result);
-    res.send('item updated!');
+    res.status(200).send('item updated!');
   });
 });
 

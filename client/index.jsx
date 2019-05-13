@@ -118,11 +118,12 @@ class Descriptions extends React.Component {
   }
 
   handlePut() {
+    const updateItem = createOne.item();
     $.ajax({
       method: 'PUT',
       url: '/put',
       dataType: 'json',
-      data: { _id: id },
+      data: { updateItem },
       success: () => {
         console.log('put - updated!');
       }

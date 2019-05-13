@@ -65,9 +65,17 @@ const deleteOne = (item, callback) => {
   });
 };
 
+const updateOne = (item, callback) => {
+  const updateItem = new Description(item);
+  const query = { numBeds: 2 };
+  Description.findOneAndUpdate(query, { numBeds: '666' }, (err) => {
+    if (err) { throw err; }
+    callback(null, console.log('updateOne end'));
+  });
+};
 
 const readOne = idNum => Description.find({ _id: idNum });
 
 const readAll = () => Description.find().sort({ _id: 'ascending' });
 
-module.exports = { save, readOne, readAll, saveOne, deleteOne };
+module.exports = { save, readOne, readAll, saveOne, deleteOne, updateOne };
