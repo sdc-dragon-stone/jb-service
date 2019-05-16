@@ -58,7 +58,6 @@ const saveOne = (item, callback) => {
 
 const deleteOne = (item, callback) => {
   const deleteItem = new Description(item);
-  console.log('item', item);
   deleteItem.deleteOne({ pic: new RegExp('/https://s3.amazonaws/') }, (deleteErr) => {
     if (deleteErr) { throw deleteErr; }
     callback(null, console.log('item deleted!'));
@@ -66,7 +65,6 @@ const deleteOne = (item, callback) => {
 };
 
 const updateOne = (item, callback) => {
-  const updateItem = new Description(item);
   const query = { numBeds: 2 };
   Description.findOneAndUpdate(query, { numBeds: '666' }, (err) => {
     if (err) { throw err; }

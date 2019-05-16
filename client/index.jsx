@@ -85,7 +85,9 @@ class Descriptions extends React.Component {
       dataType: 'json',
       data: { _id: id },
       success: (data) => {
-        this.setState({ home: data });
+        this.setState({ home: data }, () => {
+          console.log('this.state.home', this.state.home);
+        });
       }
     });
   }
@@ -106,9 +108,11 @@ class Descriptions extends React.Component {
 
   handleDelete() {
     const deleteItem = createOne.item();
+    deleteItem[0]._id = window.location.pathname.split('/')[2];
+    console.log('deleteItem', deleteItem)
     $.ajax({
       method: 'DELETE',
-      url: '/delete',
+      url: '/delete/:deleteId',
       dataType: 'json',
       data: { deleteItem },
       success: () => {
@@ -144,9 +148,9 @@ class Descriptions extends React.Component {
         {this.state.home.description}
         <Links href="#">Read more about the space<Arrow /></Links>
         <Links href="#">Contact host</Links>
-        <button onClick={this.handlePost}>POST</button><br></br><br></br>
-        <button onClick={this.handleDelete}>Delete</button><br></br><br></br>
-        <button onClick={this.handlePut}>PUT</button>
+          <button onClick={this.handlePost}>POST</button><br></br><br></br>
+          <button onClick={this.handleDelete}>Delete</button><br></br><br></br>
+          <button onClick={this.handlePut}>PUT</button>
 
       </Wrapper>
     );

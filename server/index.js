@@ -10,6 +10,7 @@ const db = require('../database/index.js');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+
 /*
 tools to compress bundle.js file
 app.use('/', expressStaticGzip(`${__dirname}/../public`, {
@@ -24,6 +25,7 @@ app.use('/', expressStaticGzip(`${__dirname}/../public`, {
 
 
 app.use(express.static('./public'));
+app.use('/delete/:deleteId', express.static('./public'));
 
 app.get('/description', (req, res) => {
   console.log('_id', req.query._id);
@@ -45,8 +47,7 @@ app.post('/post', (req, res) => {
   });
 });
 
-app.delete('/delete', (req, res) => {
-  req.body.deleteItem[0]._id = 1;
+app.delete('/delete/:deleteId', (req, res) => {
   const deleteItem = req.body.deleteItem[0];
   db.deleteOne(deleteItem, (errDelete) => {
     if (errDelete) { throw errDelete; }
