@@ -56,7 +56,8 @@ npm install
 
 GET: '/description'
 
-RESULT: {
+RESULT:
+```{
   _id : 37,
   title : "Cozy townhouse with a chef's kitchen",
   city : "Seoul",
@@ -71,3 +72,19 @@ RESULT: {
   a comfy bed and extra blankets.",
   __v : 0
  }
+ ```
+
+ POST: '/post'
+
+ RESULT:
+  ```A newly created item is sent to the endpoint and saved in the mongoDB.```
+
+ DELETE: '/delete/:id`
+
+ RESULT:
+  ```The number from the URL added as an _id property to a newly created item and sent to the endpoint to be saved then deleted.```
+
+ PUT: '/put'
+
+ RESULT:
+ ``` A newly created item is sent to the endpoint which is then updated with a predetermined query.```

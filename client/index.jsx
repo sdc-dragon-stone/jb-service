@@ -94,7 +94,6 @@ class Descriptions extends React.Component {
 
   handlePost() {
     const postItem = createOne.item();
-    console.log('postItem', postItem);
     $.ajax({
       method: 'POST',
       url: '/post',
@@ -109,7 +108,6 @@ class Descriptions extends React.Component {
   handleDelete() {
     const deleteItem = createOne.item();
     deleteItem[0]._id = window.location.pathname.split('/')[2];
-    console.log('deleteItem', deleteItem)
     $.ajax({
       method: 'DELETE',
       url: '/delete/:deleteId',
@@ -135,7 +133,7 @@ class Descriptions extends React.Component {
   }
 
   randNum() {
-    return Math.floor(Math.random() * Math.floor(100));
+    return Math.floor(Math.random() * Math.floor(2000));
   }
 
   render() {

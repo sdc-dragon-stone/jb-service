@@ -3,7 +3,7 @@ const AutoIncrement = require('mongoose-sequence')(mongoose);
 
 const mongoUri = process.env.MONGODB_URI || 'mongodb://localhost/airbnbDesc';
 
-mongoose.connect(mongoUri, { useNewUrlParser: true });
+mongoose.connect(mongoUri, { useNewUrlParser: true }, console.log('mongoose - connected! yo'));
 mongoose.set('useCreateIndex', true);
 
 const descriptionSchema = new mongoose.Schema({
@@ -66,7 +66,7 @@ const deleteOne = (item, callback) => {
 
 const updateOne = (item, callback) => {
   const query = { numBeds: 2 };
-  Description.findOneAndUpdate(query, { numBeds: '666' }, (err) => {
+  Description.findOneAndUpdate(query, { numBeds: '526' }, (err) => {
     if (err) { throw err; }
     callback(null, console.log('updateOne end'));
   });

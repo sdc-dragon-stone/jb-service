@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const port = process.env.PORT || 3210;
 const app = express();
 const db = require('../database/index.js');
+const postgresDb = require('../database/postgres.js')
 
 
 app.use(bodyParser.json());
@@ -33,14 +34,15 @@ app.get('/description', (req, res) => {
     if (err) {
       res.status(404).send(err);
     } else {
+      console.log('homeDesc', homeDesc);
       res.status(200).send(homeDesc[0]);
     }
   });
 });
 
 app.post('/post', (req, res) => {
+  console.log('inside post!')
   const post = req.body.postItem[0];
-  // req.setTimeout(0);
   db.saveOne(post, (err) => {
     if (err) { throw err; }
     res.status(200);
