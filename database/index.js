@@ -76,4 +76,4 @@ const readOne = idNum => Description.find({ _id: idNum });
 
 const readAll = () => Description.find().sort({ _id: 'ascending' });
 
-module.exports = { save, readOne, readAll, saveOne, deleteOne, updateOne };
+module.exports = { save, readOne, readAll, saveOne, deleteOne, updateOne, Description };
