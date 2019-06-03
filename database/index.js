@@ -3,7 +3,7 @@ const AutoIncrement = require('mongoose-sequence')(mongoose);
 
 const mongoUri = process.env.MONGODB_URI || 'mongodb://localhost/airbnbDesc';
 
-mongoose.connect(mongoUri, { useNewUrlParser: true });
+mongoose.connect(mongoUri, { useNewUrlParser: true }, console.log('mongoose - connected! yo'));
 mongoose.set('useCreateIndex', true);
 
 const descriptionSchema = new mongoose.Schema({
@@ -58,7 +58,6 @@ const saveOne = (item, callback) => {
 
 const deleteOne = (item, callback) => {
   const deleteItem = new Description(item);
-  console.log('item', item);
   deleteItem.deleteOne({ pic: new RegExp('/https://s3.amazonaws/') }, (deleteErr) => {
     if (deleteErr) { throw deleteErr; }
     callback(null, console.log('item deleted!'));
@@ -66,9 +65,8 @@ const deleteOne = (item, callback) => {
 };
 
 const updateOne = (item, callback) => {
-  const updateItem = new Description(item);
   const query = { numBeds: 2 };
-  Description.findOneAndUpdate(query, { numBeds: '666' }, (err) => {
+  Description.findOneAndUpdate(query, { numBeds: '526' }, (err) => {
     if (err) { throw err; }
     callback(null, console.log('updateOne end'));
   });
@@ -78,4 +76,4 @@ const readOne = idNum => Description.find({ _id: idNum });
 
 const readAll = () => Description.find().sort({ _id: 'ascending' });
 
-module.exports = { save, readOne, readAll, saveOne, deleteOne, updateOne };
+module.exports = { save, readOne, readAll, saveOne, deleteOne, updateOne, Description };

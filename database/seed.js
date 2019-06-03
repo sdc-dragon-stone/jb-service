@@ -4,7 +4,7 @@ const db = require('./index.js');
 
 const descriptions = [];
 
-for (let i = 0; i < 100; i++) {
+for (let i = 0; i < 10; i++) {
   const noun = generator.genNoun();
   const numBedrooms = generator.genNumBedrooms(noun);
   const numGuests = generator.genNumGuests();
