@@ -83,7 +83,7 @@ class Descriptions extends React.Component {
       method: 'GET',
       url: '/description',
       dataType: 'json',
-      data: { _id: id },
+      data: { _id: 1 },
       success: (data) => {
         this.setState({ home: data }, () => {
           console.log('this.state.home', this.state.home);
@@ -146,9 +146,9 @@ class Descriptions extends React.Component {
         {this.state.home.description}
         <Links href="#">Read more about the space<Arrow /></Links>
         <Links href="#">Contact host</Links>
-          <button onClick={this.handlePost}>POST</button><br></br><br></br>
-          <button onClick={this.handleDelete}>Delete</button><br></br><br></br>
-          <button onClick={this.handlePut}>PUT</button>
+        <button onClick={this.handlePost}>POST</button><br></br><br></br>
+        <button onClick={this.handleDelete}>Delete</button><br></br><br></br>
+        <button onClick={this.handlePut}>PUT</button>
 
       </Wrapper>
     );

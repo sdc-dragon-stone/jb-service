@@ -1,17 +1,17 @@
 const faker = require('faker');
+const mongoose = require('mongoose');
 const generator = require('../helpers/generator.js');
 const db = require('./index.js');
 
 const generateData = () => {
   return new Promise((resolve) => {
     const descriptions = [];
-    for (let i = 0; i < 100000; i++) {
+    for (let i = 0; i < 10; i++) {
       const noun = generator.genNoun();
       const numBedrooms = generator.genNumBedrooms(noun);
       const numGuests = generator.genNumGuests();
       descriptions.push({
         host: {
-          _id: i,
           name: faker.name.firstName(),
           pic: faker.image.avatar()
         },
@@ -48,4 +48,4 @@ const seed = async (items) => {
   }
 };
 
-seed(100);
+seed(5);

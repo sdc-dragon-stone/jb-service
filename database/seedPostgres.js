@@ -1,5 +1,4 @@
 const faker = require('faker');
-const fs = require('fs');
 const pgp = require('pg-promise')({
   capSQL: true,
 });
@@ -33,8 +32,6 @@ for (let i = 0; i < 10000; i++) {
 
 }
 
-console.log('descriptions[0]', descriptions[0]);
-
 const cs = new pgp.helpers.ColumnSet([
   'title',
   'city',
@@ -45,7 +42,7 @@ const cs = new pgp.helpers.ColumnSet([
   'numbaths',
   'description',
   'name',
-  'pic'
+  'pic',
 ],
 { table: 'descriptions' });
 

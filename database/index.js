@@ -7,7 +7,6 @@ mongoose.connect(mongoUri, { useNewUrlParser: true }, console.log('mongoose - co
 mongoose.set('useCreateIndex', true);
 
 const descriptionSchema = new mongoose.Schema({
-  _id: Number,
   host: {
     name: String,
     pic: String
@@ -76,4 +75,4 @@ const readOne = idNum => Description.find({ _id: idNum });
 
 const readAll = () => Description.find().sort({ _id: 'ascending' });
 
-module.exports = { save, readOne, readAll, saveOne, deleteOne, updateOne, Description };
+module.exports = { save, readOne, readAll, saveOne, deleteOne, updateOne, Description, descriptionSchema };

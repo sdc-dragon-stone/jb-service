@@ -1,11 +1,11 @@
-const { Client } = require('pg');
+// const { Client } = require('pg');
 
-const connectionString = 'postgresql://localhost/airbnbdesc';
+// const connectionString = 'postgresql://localhost/airbnbdesc';
 
-const client = new Client({
-  connectionString: connectionString,
-}, console.log('inside postgres'));
+// const client = new Client({
+//   connectionString: connectionString,
+// }, console.log('inside postgres'));
 
-client.connect();
+// client.connect();
 
-module.exports = { connectionString };
+// module.exports = { connectionString };
