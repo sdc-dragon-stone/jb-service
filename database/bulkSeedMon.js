@@ -6,7 +6,7 @@ const db = require('./index.js');
 const generateData = () => {
   return new Promise((resolve) => {
     const descriptions = [];
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 100000; i++) {
       const noun = generator.genNoun();
       const numBedrooms = generator.genNumBedrooms(noun);
       const numGuests = generator.genNumGuests();
@@ -42,10 +42,11 @@ const insert = (houses) => {
 
 const seed = async (items) => {
   for (let i = 0; i < items; i++) {
+    console.log('#', i);
     const houses = await generateData();
     await insert(houses);
     console.log('three: end of seed');
   }
 };
 
-seed(5);
+seed(100);
