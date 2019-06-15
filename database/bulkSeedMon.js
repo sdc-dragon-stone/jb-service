@@ -1,12 +1,11 @@
 const faker = require('faker');
-const mongoose = require('mongoose');
 const generator = require('../helpers/generator.js');
 const db = require('./index.js');
 
 const generateData = () => {
   return new Promise((resolve) => {
     const descriptions = [];
-    for (let i = 0; i < 100000; i++) {
+    for (let i = 0; i < 10000; i++) {
       const noun = generator.genNoun();
       const numBedrooms = generator.genNumBedrooms(noun);
       const numGuests = generator.genNumGuests();
@@ -32,7 +31,7 @@ const generateData = () => {
 
 const insert = (houses) => {
   return new Promise((resolve) => {
-    db.Description.insertMany(houses, (error) => {
+    db.Description.create(houses, (error) => {
       if (error) { throw error; }
       console.log('two: inserted many houses!');
       resolve();
@@ -40,13 +39,20 @@ const insert = (houses) => {
   });
 };
 
-const seed = async (items) => {
-  for (let i = 0; i < items; i++) {
-    console.log('#', i);
-    const houses = await generateData();
-    await insert(houses);
-    console.log('three: end of seed');
-  }
+const seed = (items) => {
+  const batch = async () => {
+    for (let i = 0; i < items; i++) {
+      console.log('#', i);
+      const houses = await generateData();
+      await insert(houses);
+      console.log('three: end of seed');
+    }
+    console.log('seeding complete');
+  };
+  db.Description.counterReset('_id', (err) => {
+    if (err) { throw err; }
+    batch();
+  });
 };
 
-seed(100);
+seed(1000);

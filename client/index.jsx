@@ -7,7 +7,7 @@ import Title from './components/Title.jsx';
 import HouseInfo from './components/HouseInfo.jsx';
 import createOne from '../database/createOne.js';
 
-const id = (window.id === undefined || window.id === null) ? faker.random.number({ min: 1, max: 100 }) : window.id;
+const id = (window.id === undefined || window.id === null) ? faker.random.number({ min: 900000, max: 1000000 }) : window.id;
 
 const Wrapper = styled.section`
   @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700');
@@ -79,11 +79,12 @@ class Descriptions extends React.Component {
   }
 
   componentDidMount() {
+    const identifier = window.location.pathname.split('/')[1];
     $.ajax({
       method: 'GET',
-      url: '/description',
+      url: '/description/:id',
       dataType: 'json',
-      data: { _id: 1 },
+      data: { _id: identifier },
       success: (data) => {
         this.setState({ home: data }, () => {
           console.log('this.state.home', this.state.home);
@@ -100,7 +101,7 @@ class Descriptions extends React.Component {
       dataType: 'json',
       data: { postItem },
       success: () => {
-        console.log('posted!');
+        console.log('success!');
       }
     });
   }

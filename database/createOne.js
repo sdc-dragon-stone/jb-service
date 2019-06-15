@@ -22,7 +22,7 @@ const item = () => {
       description: generator.genDescription(noun, numBedrooms)
     });
   }
-  console.log('oneItem', oneItem);
+  // console.log('oneItem', oneItem);
   return oneItem;
 };
 

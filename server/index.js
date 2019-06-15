@@ -7,6 +7,7 @@ const port = process.env.PORT || 3210;
 const app = express();
 const db = require('../database/index.js');
 const postgresDb = require('../database/postgres.js')
+const createOne = require('../database/createOne.js');
 
 
 app.use(bodyParser.json());
@@ -27,10 +28,11 @@ app.use('/', expressStaticGzip(`${__dirname}/../public`, {
 
 
 app.use(express.static('./public'));
+app.use('/:id', express.static('./public'));
 app.use('/delete/:deleteId', express.static('./public'));
 
-app.get('/description', (req, res) => {
-  console.log('_id', req.query._id);
+app.get('/description/:id', (req, res) => {
+  console.log('req.query.id', req.query.id);
   db.readOne(req.query._id).exec((err, homeDesc) => {
     if (err) {
       res.status(404).send(err);
@@ -42,11 +44,12 @@ app.get('/description', (req, res) => {
 });
 
 app.post('/post', (req, res) => {
-  console.log('inside post!')
-  const post = req.body.postItem[0];
-  db.saveOne(post, (err) => {
+  console.log('req.body', req.body);
+  const post = req.body;
+  db.savePost(post, (err, result) => {
     if (err) { throw err; }
-    res.status(200);
+    console.log('new posted item - completed');
+    res.status(200).send(result);
   });
 });
 

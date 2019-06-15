@@ -1,0 +1,37 @@
+config:
+  target: "http://localhost:3210"
+  http:
+    pool: 10
+  phases:
+    - duration: 60
+      arrivalRate: 3
+#  processor: "./fakeDescription.js"
+scenarios:
+  - name: "Get House"
+    flow:
+      - loop:
+        - get:
+            url: "/description/{{ $randomNumber(9000000, 10000000) }}"
+        count: 100
+  - name: "Post House"
+    flow:
+      - loop:
+        - post:
+            url: "/post"
+            json:
+              host: { name: '{{ $randomString() }}' , pic: '{{ $randomString() }}'}
+              title: '{{ $randomString() }}'
+              city: '{{ $randomString() }}'
+              numGuests: 3
+              homeType: '{{ $randomString() }}'
+              numBedrooms: 4
+              numBeds: 3
+              numBaths: 2
+              description: '{{ $randomString() }}'
+        count: 100
+    #  - function: "generateRandomData"
+
+
+
+
+

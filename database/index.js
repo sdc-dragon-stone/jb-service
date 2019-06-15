@@ -7,6 +7,7 @@ mongoose.connect(mongoUri, { useNewUrlParser: true }, console.log('mongoose - co
 mongoose.set('useCreateIndex', true);
 
 const descriptionSchema = new mongoose.Schema({
+  id: Number,
   host: {
     name: String,
     pic: String
@@ -19,7 +20,8 @@ const descriptionSchema = new mongoose.Schema({
   numBeds: Number,
   numBaths: Number,
   description: String
-}, { _id: false });
+}
+  , { _id: false });
 
 descriptionSchema.plugin(AutoIncrement);
 
@@ -41,6 +43,24 @@ const save = (descs) => {
       });
     });
   });
+};
+
+const savePost = (descs, callback) => {
+  Description.counterReset('_id');
+  // return new Promise((resolve) => {
+  // descs.map((descObj) => {
+  const home = new Description(descs);
+  home.save((err) => {
+    if (err) {
+      console.log('Error saving home description to database:', err);
+    } else {
+      console.log('Saved:', home);
+      callback(null);
+      // resolve(home);
+    }
+  });
+  // });
+  // });
 };
 
 const saveOne = (item, callback) => {
@@ -75,4 +95,4 @@ const readOne = idNum => Description.find({ _id: idNum });
 
 const readAll = () => Description.find().sort({ _id: 'ascending' });
 
-module.exports = { save, readOne, readAll, saveOne, deleteOne, updateOne, Description, descriptionSchema };
+module.exports = { save, savePost, readOne, readAll, saveOne, deleteOne, updateOne, Description, descriptionSchema };
