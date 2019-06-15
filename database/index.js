@@ -1,7 +1,8 @@
+require('dotenv').config();
 const mongoose = require('mongoose');
 const AutoIncrement = require('mongoose-sequence')(mongoose);
 
-const mongoUri = process.env.MONGODB_URI || 'mongodb://localhost/airbnbDesc';
+const mongoUri = process.env.MONGODB_URI;
 
 mongoose.connect(mongoUri, { useNewUrlParser: true }, console.log('mongoose - connected! yo'));
 mongoose.set('useCreateIndex', true);
