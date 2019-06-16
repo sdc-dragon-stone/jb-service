@@ -4,12 +4,11 @@ const express = require('express');
 const bodyParser = require('body-parser');
 // const expressStaticGzip = require('express-static-gzip');
 
-const port = process.env.PORT;
+const port = process.env.PORT || 3003;
 const app = express();
 const db = require('../database/index.js');
 const postgresDb = require('../database/postgres.js')
 const createOne = require('../database/createOne.js');
-
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -72,7 +71,6 @@ app.put('/put', (req, res) => {
   });
 });
 
-console.log('port', port);
 const server = app.listen(port, () => console.log(`Listening on port ${port}`));
 
 module.exports = server;
