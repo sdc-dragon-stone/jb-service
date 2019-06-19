@@ -32,7 +32,7 @@ app.use('/:id', express.static('./public'));
 app.use('/delete/:deleteId', express.static('./public'));
 
 app.get('/description/:id', (req, res) => {
-  console.log('req.query.id', req.query.id);
+  console.log('req.query._id', req.query._id);
   db.readOne(req.query._id).exec((err, homeDesc) => {
     if (err) {
       res.status(404).send(err);
