@@ -31,11 +31,11 @@ const generateData = () => {
 
 const insert = (houses) => {
   return new Promise((resolve, reject) => {
+    reject("test error inside");
     db.Description.create(houses, (error) => {
       if (error) { throw error; }
       console.log('two: inserted many houses!');
       resolve();
-      reject("test error inside");
     });
   });
 };
