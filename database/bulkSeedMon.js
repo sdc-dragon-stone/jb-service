@@ -42,6 +42,7 @@ const insert = (houses) => {
 };
 
 const seed = (items) => {
+  console.log('inside of seed function');
   const batch = async () => {
     for (let i = 0; i < items; i++) {
       console.log('#', i);
