@@ -6,7 +6,7 @@ const generateData = () => {
   return new Promise((resolve, reject) => {
     reject("test error inside");
     const descriptions = [];
-    for (let i = 0; i < 10000; i++) {
+    for (let i = 0; i < 1000; i++) {
       const noun = generator.genNoun();
       const numBedrooms = generator.genNumBedrooms(noun);
       const numGuests = generator.genNumGuests();
