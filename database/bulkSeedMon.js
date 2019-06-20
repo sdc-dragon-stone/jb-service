@@ -30,11 +30,12 @@ const generateData = () => {
 };
 
 const insert = (houses) => {
-  return new Promise((resolve) => {
+  return new Promise((resolve, reject) => {
     db.Description.create(houses, (error) => {
       if (error) { throw error; }
       console.log('two: inserted many houses!');
       resolve();
+      reject("test error inside");
     });
   });
 };
@@ -43,8 +44,12 @@ const seed = (items) => {
   const batch = async () => {
     for (let i = 0; i < items; i++) {
       console.log('#', i);
-      const houses = await generateData();
-      await insert(houses);
+      const houses = generateData();
+      try {
+        await insert(houses);
+      } catch (err) {
+        throw (err);
+      }
       console.log('three: end of seed');
     }
     console.log('seeding complete');
