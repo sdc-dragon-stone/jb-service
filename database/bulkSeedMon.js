@@ -3,7 +3,8 @@ const generator = require('../helpers/generator.js');
 const db = require('./index.js');
 
 const generateData = () => {
-  return new Promise((resolve) => {
+  return new Promise((resolve, reject) => {
+    reject("test error inside");
     const descriptions = [];
     for (let i = 0; i < 10000; i++) {
       const noun = generator.genNoun();
