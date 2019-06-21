@@ -2,6 +2,7 @@ require('dotenv').config();
 require('newrelic');
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 // const expressStaticGzip = require('express-static-gzip');
 
 const port = process.env.PORT || 3003;
@@ -12,6 +13,7 @@ const createOne = require('../database/createOne.js');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cors());
 
 
 /*
