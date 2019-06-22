@@ -2,10 +2,10 @@ require('dotenv').config();
 const mongoose = require('mongoose');
 const AutoIncrement = require('mongoose-sequence')(mongoose);
 
-// const mongoUri = 'mongodb://ec2-54-202-155-156.us-west-2.compute.amazonaws.com/airbnbDesc';
+// const mongoUri = mongodb://52.32.242.249:27017/airbnbDesc';
 // 'mongodb://localhost/airbnbDesc';
 
-mongoose.connect('mongodb://52.32.242.249:27017/airbnbDesc', { useNewUrlParser: true }, console.log('mongoose - connected! yo'));
+mongoose.connect('mongodb://localhost/airbnbDesc', { useNewUrlParser: true }, console.log('mongoose - connected! yo'));
 mongoose.set('useCreateIndex', true);
 
 const descriptionSchema = new mongoose.Schema({
