@@ -9,7 +9,7 @@ mongoose.connect('mongodb://localhost/airbnbDesc', { useNewUrlParser: true }, co
 mongoose.set('useCreateIndex', true);
 
 const descriptionSchema = new mongoose.Schema({
-  id: Number,
+  _id: Number,
   host: {
     name: String,
     pic: String

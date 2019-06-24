@@ -129,4 +129,4 @@ const seed = (items) => {
   });
 };
 
-seed(100);
+seed(1000);
