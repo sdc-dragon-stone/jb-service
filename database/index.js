@@ -5,7 +5,7 @@ const AutoIncrement = require('mongoose-sequence')(mongoose);
 // const mongoUri = mongodb://52.32.242.249:27017/airbnbDesc';
 // 'mongodb://localhost/airbnbDesc';
 
-mongoose.connect('mongodb://localhost/airbnbDesc', { useNewUrlParser: true }, console.log('mongoose - connected! yo'));
+mongoose.connect('ec2-34-217-33-244.us-west-2.compute.amazonaws.com:27017/airbnbDesc', { useNewUrlParser: true }, console.log('mongoose - connected! yo'));
 mongoose.set('useCreateIndex', true);
 
 const descriptionSchema = new mongoose.Schema({
