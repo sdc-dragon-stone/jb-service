@@ -76,6 +76,8 @@ const mongoose = require('mongoose');
 const generator = require('../helpers/generator.js');
 const db = require('./index.js');
 
+let uniqueValue = 0;
+
 const generateData = () => {
   return new Promise((resolve) => {
     const descriptions = [];
@@ -83,9 +85,9 @@ const generateData = () => {
       const noun = generator.genNoun();
       const numBedrooms = generator.genNumBedrooms(noun);
       const numGuests = generator.genNumGuests();
-      unqiueValue++;
+      uniqueValue++;
       descriptions.push({
-        id:
+        id: uniqueValue,
         host: {
           name: faker.name.firstName(),
           pic: faker.image.avatar()
@@ -117,7 +119,6 @@ const insert = (houses) => {
 
 const seed = (items) => {
   const batch = async () => {
-    let unqiueValue = 0;
     for (let i = 0; i < items; i++) {
       console.log('#', i);
       const houses = await generateData();
