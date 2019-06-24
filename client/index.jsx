@@ -84,7 +84,8 @@ class Descriptions extends React.Component {
       method: 'GET',
       url: '/description/:id',
       dataType: 'json',
-      data: { _id: identifier },
+      data: { id: identifier},
+      // data: { _id: identifier },
       success: (data) => {
         this.setState({ home: data }, () => {
           console.log('this.state.home', this.state.home);
