@@ -83,7 +83,9 @@ const generateData = () => {
       const noun = generator.genNoun();
       const numBedrooms = generator.genNumBedrooms(noun);
       const numGuests = generator.genNumGuests();
+      unqiueValue++;
       descriptions.push({
+        id:
         host: {
           name: faker.name.firstName(),
           pic: faker.image.avatar()
@@ -116,6 +118,7 @@ const insert = (houses) => {
 const seed = (items) => {
   const batch = async () => {
     for (let i = 0; i < items; i++) {
+      let unqiueValue = 0;
       console.log('#', i);
       const houses = await generateData();
       await insert(houses);
