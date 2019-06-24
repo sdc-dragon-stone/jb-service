@@ -107,7 +107,7 @@ const generateData = () => {
 
 const insert = (houses) => {
   return new Promise((resolve) => {
-    db.Description.create(houses, (error) => {
+    db.Description.insertMany(houses, (error) => {
       if (error) { throw error; }
       console.log('two: inserted many houses!');
       resolve();
@@ -117,8 +117,8 @@ const insert = (houses) => {
 
 const seed = (items) => {
   const batch = async () => {
+    let unqiueValue = 0;
     for (let i = 0; i < items; i++) {
-      let unqiueValue = 0;
       console.log('#', i);
       const houses = await generateData();
       await insert(houses);
